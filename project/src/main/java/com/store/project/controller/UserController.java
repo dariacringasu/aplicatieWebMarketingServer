@@ -73,6 +73,13 @@ public class UserController {
     }
 
     @ResponseBody
+    @PostMapping(value = "/confirmAll")
+    public String confirmAllAccounts(){
+        clientService.confirmAllAccounts();
+        return "User validati";
+    }
+
+    @ResponseBody
     @DeleteMapping(value = "/deleteUser/{id}")
     public void deleteById(@PathVariable long id){
         clientService.deleteById(id);

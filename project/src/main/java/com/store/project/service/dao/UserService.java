@@ -24,4 +24,8 @@ public interface UserService {
     public boolean emailExists(String email);
 
     public void confirmAccount(String email);
+
+    public void confirmAllAccounts();
+
+
 }

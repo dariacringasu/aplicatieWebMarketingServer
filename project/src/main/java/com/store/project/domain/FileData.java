@@ -18,7 +18,7 @@ import javax.persistence.*;
 public class FileData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     private String name;
     private String type;

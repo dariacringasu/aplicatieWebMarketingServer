@@ -5,6 +5,7 @@ import com.store.project.domain.Role;
 import com.store.project.domain.User;
 import com.store.project.repository.UserRepository;
 import com.store.project.service.dao.UserService;
+import com.store.project.service.dao.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -83,5 +84,13 @@ public class UserServiceImplementation implements UserService {
         User user = unwrapUser(optionalUser);
         user.setEnabled(true);
         clientRepository.save(user);
+    }
+
+    public void confirmAllAccounts(){
+        List<User> users = clientRepository.findAll();
+        for(User user : users){
+            user.setEnabled(true);
+            clientRepository.save(user);
+        }
     }
 }

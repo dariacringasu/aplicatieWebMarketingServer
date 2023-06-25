@@ -12,18 +12,19 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class FileDataServiceImplementation implements FileDataService {
     @Autowired
     private FileDataRepository fileDataRepository;
-    private VideoService videoService;
+//    private VideoService videoService;
 
     @Autowired
-    public FileDataServiceImplementation(FileDataRepository fileDataRepository, VideoService videoService){
+    public FileDataServiceImplementation(FileDataRepository fileDataRepository){
         this.fileDataRepository=fileDataRepository;
-        this.videoService=videoService;
+//        this.videoService=videoService;
     }
 
     private final String FOLDER_PATH="D:\\vuejs\\my-app\\licenta\\src\\videos\\";
@@ -45,7 +46,13 @@ public class FileDataServiceImplementation implements FileDataService {
         return null;
     }
 
-    public FileData getNameById(Long id) {
+    public FileData getById(Long id) {
         return fileDataRepository.findById(id);
+    }
+
+    public List<FileData> getAll(){ return fileDataRepository.findAll();}
+
+    public void deteleFileById(long id){
+        fileDataRepository.deleteById(id);
     }
 }

@@ -24,37 +24,24 @@ public class Video {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    private long id;
     @Column(name = "title")
     private String title;
-
     @Column(name="description")
     private String description;
-
     @Column(name = "approved")
     private Boolean approved;
-
     @Column(name = "dateOfPosting")
     private LocalDate dateOfPosting;
-
     @Column(name = "urlmoreinfo")
-    private String URLmoreInfo;
-
-    @Column(name = "fileName")
-    private String fileName;
-
-    @Column(name = "filePath")
-    private String filePath;
-
-    @Lob
-    @Column(name = "videoData", length = 2000)
-    private byte[] videoData;
+    private String urlmoreinfo;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="user_id",referencedColumnName = "id")
     @JsonIgnore
     private User client;
+
+
 
 
 

@@ -9,9 +9,10 @@ import java.util.Optional;
 @Repository
 public interface FileDataRepository extends JpaRepository<FileData,Integer> {
     FileData findByName(String fileName);
+
     List<FileData> findAll();
 
-    FileData findById(Long id);
+    FileData findById(long id);
 
     void deleteById(long id);
 }

@@ -9,7 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.transaction.Transactional;
+import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -29,6 +32,15 @@ public class FileDataController {
 
     @GetMapping("/getFileDataNameById/{id}")
     public FileData getFileDataNameById(@PathVariable Long id){
-        return service.getNameById(id);
+        return service.getById(id);
+    }
+
+    @GetMapping("/getAll")
+    public List<FileData> getAll(){ return service.getAll();}
+
+    @Transactional
+    @DeleteMapping("/delete/{id}")
+    public void deleteById(@PathVariable long id){
+        service.deteleFileById(id);
     }
 }

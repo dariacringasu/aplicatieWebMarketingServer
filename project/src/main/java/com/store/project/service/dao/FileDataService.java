@@ -10,7 +10,11 @@ import java.util.Optional;
 public interface FileDataService {
     public String uploadImageToFileSystem(MultipartFile file) throws IOException;
 
-    FileData getNameById(Long id);
+    public FileData getById(Long id);
+
+    public List<FileData> getAll();
+
+    public void deteleFileById(long id);
 
 
 }

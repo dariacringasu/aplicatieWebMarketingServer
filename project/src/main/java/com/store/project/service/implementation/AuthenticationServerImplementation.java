@@ -51,7 +51,6 @@ public class AuthenticationServerImplementation implements AuthenticationService
     private final TokenRepository tokenRepository;
 
         public AuthenticationResponse register(RegisterRequest request){
-//           if(!userService.emailExists(request.getEmail())) {
                var client = User.builder()
                        .companyName(request.getCompanyName())
                        .email(request.getEmail())
@@ -74,10 +73,6 @@ public class AuthenticationServerImplementation implements AuthenticationService
                emailService.sendEmail(mailMessage);
                return AuthenticationResponse.builder()
                        .token(jwtToken).build();
-//           }
-//           else {
-//               throw new EmailAlreadyExistsException(request.getEmail());
-//           }
         }
 
 

@@ -12,11 +12,11 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    User save(User client);
+    User save(User user);
 
     List<User> findAll();
 
-    User findById(long clientId);
+    User findById(long userId);
 
     Page<User> findAll(Pageable page);
 
